@@ -8,12 +8,12 @@ import { signOut } from "next-auth/react";
 export default function DashboardClient() {
   const router = useRouter();
 function handleClick() {
-  const id = uuidv4(); // ✅ correct and simple
+  const id = uuidv4(); 
   router.push(`/stream/${id}`);
 }
 
   function handleLogout() {
-    signOut({ callbackUrl: "/login" }); // redirect to login page after logout
+    signOut({ callbackUrl: "/login" }); 
   }
 
   return (

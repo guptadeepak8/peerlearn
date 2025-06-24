@@ -12,7 +12,7 @@ export async function POST(req: Request) {
 
   console.log("Received:", username, password);
   if (username === mockUser.username && password === mockUser.password) {
-    const { password, ...userWithoutPassword } = mockUser;
+    const {  ...userWithoutPassword } = mockUser;
     return NextResponse.json(userWithoutPassword);
   }
 

@@ -1,17 +1,17 @@
 'use client'
-import { signIn } from "next-auth/react";
+
 
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 export default function Marketingpage() {
    const { data: session } = useSession();
+   const router=useRouter()
    
   return (
     <div>
         <h1>marketing page</h1>
 <div>Welcome {session?.user?.name}</div>;
-      <button onClick={() => signIn("google", { callbackUrl: "/dashboard" })}>
-      Login with Google
-      </button>
+      <button onClick={()=>router.push('/login')}>login</button>
     </div>
     
   )
