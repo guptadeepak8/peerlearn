@@ -1,3 +1,4 @@
+'use client'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -6,6 +7,7 @@ import { Label } from '@/components/ui/label'
 import { FormEvent, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
+import { Loader2Icon } from 'lucide-react'
 
 export function LoginForm() {
 
@@ -86,8 +88,8 @@ export function LoginForm() {
                   <Input id="password" name='password' type="password"  />
                 </div>
                 {error }
-                <Button type="submit" className="w-full">
-                  {loading ? 'loading..':'login'}
+                <Button type="submit" className="w-full" disabled={loading}>
+                  {loading && <Loader2Icon className="animate-spin" /> } Login
                 </Button>
               </div>
               <div className="text-center text-sm">
